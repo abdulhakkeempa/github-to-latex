@@ -13,31 +13,34 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
+            <h5 class="pt-4 pb-4">Transform the code in your github profile to latex project template</h5>
             <form id="record-form">
               <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="mb-3">
                 <label for="aim" class="form-label">Aim</label>
-                <input type="text" class="form-control" id="aim" name="aim">
+                <textarea type="text" class="form-control" id="aim" name="aim" rows="10"></textarea>
               </div>
               <div class="mb-3">
-                <label for="algorithm" class="form-label">Algorithm</label>
-                <textarea type="text" class="form-control" id="algorithm" name="algorithm" rows="10"></textarea>
+                <label for="github_username" class="form-label">Github Username</label>
+                <input type="text" class="form-control" id="github_username" name="github_username">
               </div>
               <div class="mb-3">
-                <label for="github-link" class="form-label">Github Username</label>
-                <input type="text" class="form-control" id="github-username" name="github-link">
+                <label for="github_repo" class="form-label">Github Repository Name</label>
+                <input type="text" class="form-control" id="github_repo" name="github_repo">
               </div>
               <div class="mb-3">
-                <label for="github-link" class="form-label">Github Repository Name</label>
-                <input type="text" class="form-control" id="github-repo" name="github-link">
-              </div>
-              <div class="mb-3">
-                <label for="github-link" class="form-label">File Structure</label>
-                <input type="text" class="form-control" id="folder_structure" name="github-link">
+                <label for="folder_structure" class="form-label">File Structure</label>
+                <input type="text" class="form-control" id="folder_structure" name="folder_structure">
                 <div id="emailHelp" class="form-text">If this is the url <strong>https://github.com/abdulhakkeempa/dbms-lab-cusat/blob/main/Lab-Cycle-2/mongo-db.txt</strong>, enter Lab-Cycle-2/mongo-db.txt</div>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-            <p></p>
+            <div class="col-12 p-5">
+              <textarea name="" id="output" rows="10" cols="150"></textarea>
+              <button class="btn btn-primary" id="copy-btn">Copy Button</button>
           </div>
         </div>
       </div>
