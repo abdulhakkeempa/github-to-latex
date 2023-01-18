@@ -42,4 +42,5 @@ function getFormat(title,aim,data){
 
 document.getElementById("copy-btn").onclick = () => {
   navigator.clipboard.writeText(document.getElementById("output").value);
+  alert("Copied to Clipboard");
 }
