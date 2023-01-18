@@ -17,23 +17,23 @@
             <form id="record-form">
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" required>
               </div>
               <div class="mb-3">
                 <label for="aim" class="form-label">Aim</label>
-                <textarea type="text" class="form-control" id="aim" name="aim" rows="10"></textarea>
+                <textarea type="text" class="form-control" id="aim" name="aim" rows="10"></textarea required>
               </div>
               <div class="mb-3">
                 <label for="github_username" class="form-label">Github Username</label>
-                <input type="text" class="form-control" id="github_username" name="github_username">
+                <input type="text" class="form-control" id="github_username" name="github_username" required>
               </div>
               <div class="mb-3">
                 <label for="github_repo" class="form-label">Github Repository Name</label>
-                <input type="text" class="form-control" id="github_repo" name="github_repo">
+                <input type="text" class="form-control" id="github_repo" name="github_repo" required>
               </div>
               <div class="mb-3">
                 <label for="folder_structure" class="form-label">File Structure</label>
-                <input type="text" class="form-control" id="folder_structure" name="folder_structure">
+                <input type="text" class="form-control" id="folder_structure" name="folder_structure" required>
                 <div id="emailHelp" class="form-text">If this is the url <strong>https://github.com/abdulhakkeempa/dbms-lab-cusat/blob/main/Lab-Cycle-2/mongo-db.txt</strong>, enter Lab-Cycle-2/mongo-db.txt</div>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
