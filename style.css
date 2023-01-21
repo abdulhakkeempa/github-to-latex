@@ -22,3 +22,15 @@
   border: none!important;
   background-color: rgb(51 65 85) !important;
 }
+
+
+#output-code{
+  position: relative;
+}
+
+#copy-icon {
+  position: absolute;
+  padding: 10px;
+  top: 0px;
+  right: 6px;
+}
