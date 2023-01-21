@@ -40,7 +40,8 @@ function getFormat(title,aim,data){
   document.getElementById("output").value += code
 }
 
-document.getElementById("copy-btn").onclick = () => {
+document.getElementById("copy-icon").onclick = () => {
+  document.getElementById("copy-icon").innerHTML = `<i class="bi bi-clipboard-check-fill text-success h6"></i>`;
   navigator.clipboard.writeText(document.getElementById("output").value);
   alert("Copied to Clipboard");
 }
