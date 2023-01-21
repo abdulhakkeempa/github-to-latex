@@ -1,11 +1,21 @@
-*::-webkit-scrollbar,
-*::-webkit-scrollbar-thumb {
-  width: 26px;
+#output::-webkit-scrollbar,
+#output::-webkit-scrollbar-thumb {
+  width: 24px;
   border-radius: 13px;
   background-clip: padding-box;
   border: 10px solid transparent;
 }
 
-*::-webkit-scrollbar-thumb {        
+#output::-webkit-scrollbar-thumb {        
   box-shadow: inset 0 0 0 10px;
+}
+
+#output::-webkit-resizer {
+  display: none;
+}
+
+#record-form input,textarea {
+  box-shadow: none !important;
+  border: none!important;
+  background-color: rgb(51 65 85) !important;
 }
