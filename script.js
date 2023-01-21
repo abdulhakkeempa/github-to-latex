@@ -6,8 +6,13 @@ document.getElementById("record-form").onsubmit = (e) => {
   aim = form.aim.value
   fetch_url = `https://raw.githubusercontent.com/${form.github_username.value}/${form.github_repo.value}/main/${form.folder_structure.value}`
   fetch(fetch_url)
-  .then((response) => response.text())
-  .then((data) => getFormat(title,aim,data));
+  .then((response) => {
+    if (response.status == 404){
+      alert("Invalid Details");
+    } else {
+      getFormat(title,aim,response.text)
+    }
+  });
 }
 
 function getFormat(title,aim,data){
