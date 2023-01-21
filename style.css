@@ -1,0 +1,36 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+
+#output::-webkit-scrollbar,
+#output::-webkit-scrollbar-thumb {
+  width: 24px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+}
+
+#output::-webkit-scrollbar-thumb {        
+  box-shadow: inset 0 0 0 10px;
+}
+
+#output::-webkit-resizer {
+  display: none;
+}
+
+#record-form input,textarea {
+  box-shadow: none !important;
+  border: none!important;
+  background-color: rgb(51 65 85) !important;
+}
+
+
+#output-code{
+  position: relative;
+}
+
+#copy-icon {
+  position: absolute;
+  padding: 10px;
+  top: 2px;
+  right: 8px;
+}

@@ -1,12 +1,18 @@
 document.getElementById("record-form").onsubmit = (e) => {
   e.preventDefault();
   var form = document.getElementById("record-form")
+  validateGithubUser(form.github_username.value);
   title = form.title.value
   aim = form.aim.value
   fetch_url = `https://raw.githubusercontent.com/${form.github_username.value}/${form.github_repo.value}/main/${form.folder_structure.value}`
   fetch(fetch_url)
-  .then((response) => response.text())
-  .then((data) => getFormat(title,aim,data));
+  .then((response) => {
+    if (response.status == 404){
+      alert("Invalid Details");
+    } else {
+      getFormat(title,aim,response.text)
+    }
+  });
 }
 
 function getFormat(title,aim,data){
@@ -40,7 +46,18 @@ function getFormat(title,aim,data){
   document.getElementById("output").value += code
 }
 
-document.getElementById("copy-btn").onclick = () => {
+document.getElementById("copy-icon").onclick = () => {
+  document.getElementById("copy-icon").innerHTML = `<i class="bi bi-clipboard-check-fill text-success h6"></i>`;
   navigator.clipboard.writeText(document.getElementById("output").value);
-  alert("Copied to Clipboard");
+  // alert("Copied to Clipboard");
+}
+
+
+function validateGithubUser(username){
+  fetch(`https://api.github.com/users/${username}`)
+  .then((response => {
+    if (response.status == 404){
+      alert("Provide valid username");
+    } 
+  }))
 }
