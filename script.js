@@ -1,7 +1,9 @@
 document.getElementById("record-form").onsubmit = (e) => {
   e.preventDefault();
   var form = document.getElementById("record-form")
-  validateGithubUser(form.github_username.value);
+  if (!validateGithubUser(form.github_username.value)){
+    return;
+  }
   title = form.title.value
   aim = form.aim.value
   fetch_url = `https://raw.githubusercontent.com/${form.github_username.value}/${form.github_repo.value}/main/${form.folder_structure.value}`
@@ -58,6 +60,10 @@ function validateGithubUser(username){
   .then((response => {
     if (response.status == 404){
       alert("Provide valid username");
+      //returns false if the github username is valid
+      return false;
     } 
+    //returns true if the github username is valid
+    return true;
   }))
 }
