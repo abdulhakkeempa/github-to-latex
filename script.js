@@ -56,3 +56,7 @@ document.getElementById("copy-icon").onclick = () => {
   navigator.clipboard.writeText(document.getElementById("output").value);
   // alert("Copied to Clipboard");
 }
+
+document.getElementById("clear-icon").onclick = () => {
+  document.getElementById("output").value = "";
+}

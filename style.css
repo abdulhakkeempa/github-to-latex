@@ -32,5 +32,12 @@
   position: absolute;
   padding: 10px;
   top: 2px;
-  right: 8px;
+  right: 30px;
+}
+
+#clear-icon {
+  position: absolute;
+  padding: 10px;
+  top: 2px;
+  right: 2px;
 }
