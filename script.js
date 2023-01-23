@@ -1,7 +1,10 @@
 document.getElementById("record-form").onsubmit = (e) => {
   e.preventDefault();
-  var form = document.getElementById("record-form")
-  if (!validateGithubUser(form.github_username.value)){
+  var form = document.getElementById("record-form");
+  const user = validateGithubUser(form.github_username.value);
+  console.log("user: "+user.value)
+  if (user ==false){
+    console.log("Hi, got false");
     return;
   }
   title = form.title.value
@@ -9,12 +12,18 @@ document.getElementById("record-form").onsubmit = (e) => {
   fetch_url = `https://raw.githubusercontent.com/${form.github_username.value}/${form.github_repo.value}/main/${form.folder_structure.value}`
   fetch(fetch_url)
   .then((response) => {
-    if (response.status == 404){
-      alert("Invalid Details");
-    } else {
-      getFormat(title,aim,response.text)
+    if (!response.ok) {
+      throw new Error('Network response was not OK');
     }
+    return response.text()
+  })
+  .then((text) => {
+    getFormat(title,aim,text);
+  })
+  .catch(function() {
+    alert("Provide Valid Details")
   });
+
 }
 
 function getFormat(title,aim,data){
@@ -55,15 +64,18 @@ document.getElementById("copy-icon").onclick = () => {
 }
 
 
-function validateGithubUser(username){
+async function validateGithubUser(username){
+  console.log("Called Me");
   fetch(`https://api.github.com/users/${username}`)
   .then((response => {
     if (response.status == 404){
       alert("Provide valid username");
       //returns false if the github username is valid
+      console.log("Hi, returning false");
       return false;
     } 
     //returns true if the github username is valid
+    console.log("Hi, returning true");
     return true;
   }))
 }
