@@ -30,14 +30,19 @@
 
 #copy-icon {
   position: absolute;
+  background-color: rgb(73, 84, 100) !important;
+  border-radius: 8px !important;
   padding: 10px;
-  top: 2px;
+  top: 5px;
   right: 30px;
+  margin-right: 15px !important;
 }
 
 #clear-icon {
   position: absolute;
+  background-color: rgb(73, 84, 100) !important;
+  border-radius: 8px !important;
   padding: 10px;
-  top: 2px;
-  right: 2px;
+  top: 5px;
+  right: 5px;
 }
