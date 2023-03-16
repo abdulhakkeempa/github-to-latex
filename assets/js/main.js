@@ -7,8 +7,9 @@ function getRepoNames(data){
   }
 }
 
-//regular expression to check whether it's a file not a folder!
-const fileRegex = /\.[^/.]+$/;
+//regular expression to check whether it's a file not a folder,also it avoids image,document files etc!
+const fileRegex = /\.(?!jpg|jpeg|png|gif|csv|xlsx|xls|pdf)[^/.]+$/i;
+
 
 
 function getFilesInRepo(data){
