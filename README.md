@@ -15,3 +15,31 @@ If you find my project useful and want to show your support, you can give it a s
 
 
 
+## Maintainers
+Abdul Hakkeem P A [Embed personal github URL]
+
+## Link to project walkthrough
+[link to video]
+
+## How it Works ?
+This application operates entirely on the client-side, utilizing only public APIs for all data fetching processes. As a result, it operates without the need for a server, eliminating any concerns regarding scalability. This design decision allows for a streamlined user experience, while also ensuring efficient and effective functionality.
+
+
+## Technologies and Libraries used
+* Bootstrap 5.3
+* Tailwind CSS
+* JavaScript
+* GitHub API
+
+## How to configure
+```git clone https://github.com/abdulhakkeempa/github-to-latex.git```  
+```cd github-to-latex```  
+Open the ```index.html```
+
+
+## How to Run
+
+
+## Improvements Required
+Include new features, update, bug fixes for the project
+
