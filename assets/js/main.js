@@ -1,6 +1,7 @@
 function getRepoNames(data){
   repoList = document.getElementById("github_repo")
   repoList.innerHTML = ""
+  repoList.innerHTML += `<option value="0">--- Choose your GitHub Repository ---</option>`
   for (const key in data) {
     repoList.innerHTML += `<option value="${data[key].name}">${data[key].name}</option>`
     console.log(data[key].name)
@@ -8,7 +9,7 @@ function getRepoNames(data){
 }
 
 //regular expression to check whether it's a file not a folder,also it avoids image,document files etc!
-const fileRegex = /\.(?!jpg|jpeg|png|gif|csv|xlsx|xls|pdf)[^/.]+$/i;
+const fileRegex = /\.(?!jpg|jpeg|png|gif|csv|xlsx|xls|pdf|svg)[^/.]+$/i;
 
 
 
