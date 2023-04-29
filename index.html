@@ -50,18 +50,21 @@
               </div>
               <div class="mb-3">
                 <label for="github_repo" class="form-label font-sans text-slate-200 text-base">Github Repository Name</label>
-                <select class="form-select bg-dark text-white" aria-label="Default select example" id="github_repo" name="github_repo" onchange="fetchRepoFiles(this.value)" required data-bs-theme="dark">
+                <select class="form-select text-white bg-dropdown" aria-label="Default select example" id="github_repo" name="github_repo" onchange="fetchRepoFiles(this.value)" required data-bs-theme="dark">
                   <option value="0" selected>Your Github Repository</option>
                 </select>
                 
               </div>
               <div class="mb-3">
                 <label for="folder_structure" class="form-label font-sans text-slate-200 text-base">File Structure</label>
-                <select class="form-select bg-dark text-white" aria-label="Default select example" id="folder_structure" name="folder_structure" required data-bs-theme="dark">
+                <select class="form-select text-white bg-dropdown" aria-label="Default select example" id="folder_structure" name="folder_structure" required data-bs-theme="dark">
                   <option value="0" selected>Your File</option>
                 </select>
               </div>
-              <button type="submit" id="submit-button" class="btn btn-primary font-sans text-slate-200	text-base">Submit</button>
+              <div class="flex justify-center gap-2">
+                <button type="submit" id="submit-button" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 shadow-lg transition duration-300 rounded-md">Generate</button>
+                <button type="submit" id="submit-button" class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 shadow-lg transition duration-300 rounded-md">Clear</button>  
+              </div>
             </form>
           </div>
           <div class="col-12 col-md-6">
