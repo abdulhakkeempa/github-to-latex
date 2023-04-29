@@ -17,7 +17,6 @@ document.getElementById("record-form").onsubmit = (e) => {
   .catch(function() {
     alert("Provide Valid Details")
   });
-
 }
 
 function getFormat(title,aim,data){
@@ -54,9 +53,21 @@ function getFormat(title,aim,data){
 document.getElementById("copy-icon").onclick = () => {
   document.getElementById("copy-icon").innerHTML = `<i class="bi bi-clipboard-check-fill text-success h6"></i>`;
   navigator.clipboard.writeText(document.getElementById("output").value);
+
+  // Set a timeout of 2 seconds to reset the icon
+  setTimeout(() => {
+    document.getElementById("copy-icon").innerHTML = `<i class="bi bi-clipboard text-white h6"></i>`;
+  }, 1400);
   // alert("Copied to Clipboard");
 }
 
 document.getElementById("clear-icon").onclick = () => {
   document.getElementById("output").value = "";
 }
+
+const clearButton = document.getElementById("form-clear-button");
+
+clearButton.addEventListener("click", () => {
+  const form = document.getElementById("record-form");
+  form.reset();
+});
