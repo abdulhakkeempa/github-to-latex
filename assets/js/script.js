@@ -71,3 +71,22 @@ clearButton.addEventListener("click", () => {
   const form = document.getElementById("record-form");
   form.reset();
 });
+
+const settingsButton = document.getElementById("settings-icon");
+
+settingsButton.addEventListener("click", () => {
+
+  const isMobile = navigator.userAgent.match(/Mobi/);
+
+  // If the device is mobile, log a message to the console
+  if (isMobile) {
+    console.log('This is a mobile device');
+  } else {
+  // Get the modal element
+  const myModal = document.getElementById('staticBackdrop');
+  
+  // Show the modal using the Bootstrap JavaScript API
+  const modal = new bootstrap.Modal(myModal);
+  modal.show();  
+}
+});
