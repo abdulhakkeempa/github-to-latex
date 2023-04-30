@@ -19,6 +19,7 @@
               <div class="d-flex gap-3 justify-content-center">
                 <a class="github-button" href="https://github.com/abdulhakkeempa/github-to-latex" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star abdulhakkeempa/github-to-latex on GitHub">Star</a>
                 <a class="github-button" href="https://github.com/abdulhakkeempa/github-to-latex/issues" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-issue-opened" data-size="large" aria-label="Issue abdulhakkeempa/github-to-latex on GitHub">Issue</a>
+                <a class="github-button" href="docs/" data-color-scheme="no-preference: dark; light: light; dark: dark;"  data-size="large" aria-label="Issue abdulhakkeempa/github-to-latex on GitHub">Docs</a>
               </div>
               <!-- Place this tag where you want the button to render. -->
             </div>
@@ -81,21 +82,24 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Customise Latex Code (Beta)</h1>
+                    <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Add your custom latex code (beta)</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <div class="col-12">
                       <h6 class="text-white" >Available Variables</h6>
                       <div class="d-flex gap-2" id="available-variables">
-                        <h6 class="text-white" >title</h6>
+                        <button class="btn" onclick="insertVariable('${title}')">title</button>
+                        <button class="btn" onclick="insertVariable('${aim}')">aim</button>
+                        <button class="btn" onclick="insertVariable('${data}')">data</button>
+                        <!-- <h6 class="text-white" >title</h6>
                         <h6 class="text-white" >aim</h6>
-                        <h6 class="text-white" >data</h6>
+                        <h6 class="text-white" >data</h6> -->
                       </div>
                       <form action="" id="custom-latex">
                         <div class="mb-3">
                           <label for="latex_custom" class="form-label text-white">Latex Code</label>
-                          <textarea name="latex_custom" id="" cols="30" class="form-control text-white" rows="10"></textarea>
+                          <textarea name="latex_custom" id="latex_custom" cols="30" class="form-control text-white" rows="10"></textarea>
                         </div>
                         <div class="d-flex justify-content-center">
                           <input type="submit" class="btn btn-success" value="Save">
