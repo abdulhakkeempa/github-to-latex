@@ -19,9 +19,14 @@ document.getElementById("record-form").onsubmit = (e) => {
   });
 }
 
-function getFormat(title,aim,data){
-  code = 
-  `%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function getFormat(title, aim, data) {
+  let code = '';
+  
+  // Check if custom_latex exists in localStorage
+  if (localStorage.getItem('custom_latex') !== null) {
+    code = localStorage.getItem('custom_latex');
+  } else {
+    code = `%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\\begin{center}
 		%%Title of the Program
 		\\large\\textbf{${title}}
@@ -30,25 +35,36 @@ function getFormat(title,aim,data){
 	\\begin{flushleft}
 		\\textbf{AIM }
 	\\end{flushleft} 
-  %%Insert AIM of your program here
+        %%Insert AIM of your program here
         ${aim}    
+        
     \\begin{flushleft}
       \\textbf{PROGRAM}
     \\end{flushleft}
-  %%Insert the program code here
+        %%Insert the program code here
     \\begin{verbatim}
     ${data}
     \\end{verbatim}
+    
     \\begin{flushleft}
       \\textbf{SAMPLE INPUT-OUTPUT}
     \\end{flushleft} 
-  %%Insert screen shot of sample output as image file as filename.png
+        %%Insert screen shot of sample output as image file as filename.png
     \\includegraphics[scale=0.5]{}
     \\includegraphics[scale=0.5]{}
     \\newpage
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%`
-  document.getElementById("output").value += code
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%`;
+  }
+  
+  
+  // Replace variables with values
+  code = code.replace('${title}', title);
+  code = code.replace('${aim}', aim);
+  code = code.replace('${data}', data);
+  
+  document.getElementById('output').value += code;
 }
+
 
 document.getElementById("copy-icon").onclick = () => {
   document.getElementById("copy-icon").innerHTML = `<i class="bi bi-clipboard-check-fill text-success h6"></i>`;
@@ -88,5 +104,44 @@ settingsButton.addEventListener("click", () => {
   // Show the modal using the Bootstrap JavaScript API
   const modal = new bootstrap.Modal(myModal);
   modal.show();  
+
+  if(localStorage.getItem("custom_latex") !== null){
+    // myItemKey exists in localStorage
+    var form = document.getElementById("custom-latex");
+    form.latex_custom.value = localStorage.getItem("custom_latex")
+  }
+}});
+
+
+document.getElementById("custom-latex").onsubmit = (e) => {
+  e.preventDefault();
+  const form = document.getElementById("custom-latex");
+  // console.log(form.latex_custom.value)
+
+  available_variables = ['${title}','${aim}','${data}']
+
+  //extracting the variables out of the latex code.
+  const latex_code = form.latex_custom.value;
+  console.log(latex_code)
+  const regex = /\$\{[a-zA-Z0-9]+\}/g
+  const user_variables = latex_code.match(regex);
+  console.log(user_variables)
+
+  const invalid_variables = user_variables.filter(match => !available_variables.includes(match));
+  if (invalid_variables.length === 0) {
+    //saving the custom code, when there are no invalid variables
+    localStorage.setItem("custom_latex",form.latex_custom.value);
+  } else {
+    alert(`Invalid variables found: ${invalid_variables.join(', ')}`);
+  }
 }
-});
+
+function insertVariable(variableName) {
+  var textarea = document.getElementById("latex_custom");
+  var cursorPosition = textarea.selectionStart;
+  var currentValue = textarea.value;
+  var newValue = currentValue.substring(0, cursorPosition) + variableName + currentValue.substring(textarea.selectionEnd);
+  textarea.value = newValue;
+  textarea.setSelectionRange(cursorPosition + variableName.length, cursorPosition + variableName.length);
+  textarea.focus();
+}
