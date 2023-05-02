@@ -23,7 +23,7 @@ function getFormat(title, aim, data) {
   let code = '';
   
   // Check if custom_latex exists in localStorage
-  if (localStorage.getItem('custom_latex') !== null) {
+  if (localStorage.getItem("use_custom_code") === 'true' && localStorage.getItem('custom_latex') !== null) {
     code = localStorage.getItem('custom_latex');
   } else {
     code = `%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -56,12 +56,11 @@ function getFormat(title, aim, data) {
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%`;
   }
   
-
   // Replace variables with values
-  code = code.replace('${title}', title);
-  code = code.replace('${aim}', aim);
-  code = code.replace('${data}', data);
-  
+  code = code.replace(/\${title}/g, title);
+  code = code.replace(/\${aim}/g, aim);
+  code = code.replace(/\${data}/g, data);
+    
   document.getElementById('output').value += code;
 }
 
@@ -120,19 +119,6 @@ settingsButton.addEventListener("click", () => {
 
 document.getElementById("custom-latex").onsubmit = (e) => {
   e.preventDefault();
-  console.log("called me")
-
-  const form = document.getElementById("custom-latex");
-  console.log("switch: "+form.use_custom_code.value)
-
-  available_variables = ['${title}','${aim}','${data}']
-
-  //extracting the variables out of the latex code.
-  const latex_code = form.latex_custom.value;
-  console.log(latex_code)
-  const regex = /\$\{[a-zA-Z0-9]+\}/g
-  const user_variables = latex_code.match(regex);
-  console.log(user_variables)
 
   modalAlert = document.getElementById("modalAlert")
 
@@ -144,16 +130,37 @@ document.getElementById("custom-latex").onsubmit = (e) => {
       '</div>'
     ].join('')
   }
-  
-  const invalid_variables = user_variables.filter(match => !available_variables.includes(match));
-  if (invalid_variables.length === 0) {
-    //saving the custom code, when there are no invalid variables
-    localStorage.setItem("custom_latex",form.latex_custom.value);
-    localStorage.setItem("use_custom_code",form.use_custom_code.value);
-    appendAlert('Settings saved successfully', 'success');
-  } else {
-    appendAlert(`Invalid variables found ${invalid_variables}`, 'warning');
+
+  const form = document.getElementById("custom-latex");
+
+  if (form.use_custom_code.value !== "false" && form.latex_custom.value === ""){
+    appendAlert("Custom Latex Code can not be enabled with Latex Code being Empty","info")
+    return
   }
+
+  available_variables = ['${title}','${aim}','${data}']
+
+  //extracting the variables out of the latex code.
+  const latex_code = form.latex_custom.value;
+  console.log(latex_code)
+  const regex = /\$\{[a-zA-Z0-9]+\}/g
+  const user_variables = latex_code.match(regex);
+  console.log(user_variables)
+  
+  try {
+    const invalid_variables = user_variables.filter(match => !available_variables.includes(match));
+    if (invalid_variables.length === 0) {
+      //saving the custom code, when there are no invalid variables
+      localStorage.setItem("custom_latex",form.latex_custom.value);
+      localStorage.setItem("use_custom_code",form.use_custom_code.value);
+      appendAlert('Settings saved successfully', 'success');
+    } else {
+      appendAlert(`Invalid variables found ${invalid_variables}`, 'warning');
+    }   
+  } catch (error) {
+    console.log(error)
+  }
+
 }
 
 function insertVariable(variableName) {
@@ -164,14 +171,4 @@ function insertVariable(variableName) {
   textarea.value = newValue;
   textarea.setSelectionRange(cursorPosition + variableName.length, cursorPosition + variableName.length);
   textarea.focus();
-}
-
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-
-if (toastTrigger) {
-  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-  toastTrigger.addEventListener('click', () => {
-    toastBootstrap.show()
-  })
 }
