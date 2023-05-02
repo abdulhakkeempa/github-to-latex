@@ -56,7 +56,7 @@ function getFormat(title, aim, data) {
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%`;
   }
   
-  
+
   // Replace variables with values
   code = code.replace('${title}', title);
   code = code.replace('${aim}', aim);
@@ -97,6 +97,10 @@ settingsButton.addEventListener("click", () => {
   // If the device is mobile, log a message to the console
   if (isMobile) {
     console.log('This is a mobile device');
+    const toastLiveExample = document.getElementById('liveToast')
+    document.getElementById("toast-content").innerHTML = "Please note that advanced settings can only be accessed on a PC. If you are using a mobile device or tablet, you may not be able to access these settings."
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastBootstrap.show()
   } else {
   // Get the modal element
   const myModal = document.getElementById('staticBackdrop');
@@ -109,14 +113,17 @@ settingsButton.addEventListener("click", () => {
     // myItemKey exists in localStorage
     var form = document.getElementById("custom-latex");
     form.latex_custom.value = localStorage.getItem("custom_latex")
+    form.use_custom_code.value = localStorage.getItem("use_custom_code")
   }
 }});
 
 
 document.getElementById("custom-latex").onsubmit = (e) => {
   e.preventDefault();
+  console.log("called me")
+
   const form = document.getElementById("custom-latex");
-  // console.log(form.latex_custom.value)
+  console.log("switch: "+form.use_custom_code.value)
 
   available_variables = ['${title}','${aim}','${data}']
 
@@ -127,12 +134,25 @@ document.getElementById("custom-latex").onsubmit = (e) => {
   const user_variables = latex_code.match(regex);
   console.log(user_variables)
 
+  modalAlert = document.getElementById("modalAlert")
+
+  const appendAlert = (message, type) => {
+    modalAlert.innerHTML = [
+      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      '</div>'
+    ].join('')
+  }
+  
   const invalid_variables = user_variables.filter(match => !available_variables.includes(match));
   if (invalid_variables.length === 0) {
     //saving the custom code, when there are no invalid variables
     localStorage.setItem("custom_latex",form.latex_custom.value);
+    localStorage.setItem("use_custom_code",form.use_custom_code.value);
+    appendAlert('Settings saved successfully', 'success');
   } else {
-    alert(`Invalid variables found: ${invalid_variables.join(', ')}`);
+    appendAlert(`Invalid variables found ${invalid_variables}`, 'warning');
   }
 }
 
@@ -144,4 +164,14 @@ function insertVariable(variableName) {
   textarea.value = newValue;
   textarea.setSelectionRange(cursorPosition + variableName.length, cursorPosition + variableName.length);
   textarea.focus();
+}
+
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastTrigger.addEventListener('click', () => {
+    toastBootstrap.show()
+  })
 }
