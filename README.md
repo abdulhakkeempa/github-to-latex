@@ -16,7 +16,10 @@ If you find my project useful and want to show your support, you can give it a s
 
 
 ## Maintainers
-Abdul Hakkeem P A [Embed personal github URL]
+<a href="https://github.com/abdulhakkeempa/github-to-latex/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=abdulhakkeempa/github-to-latex" />
+</a>
+
 
 ## Link to project walkthrough
 [link to video]
