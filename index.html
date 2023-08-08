@@ -48,14 +48,20 @@
               </div>
               <div class="mb-3">
                 <label for="github_username" class="form-label font-sans text-slate-200 text-base">Github Username</label>
-                <input type="text" class="form-control text-white bg-slate-800" id="github_username" onchange="fetchRepoNames(this.value)" placeholder="abdulhakkeempa" name="github_username" required>
+                <input type="text" class="form-control text-white bg-slate-800" id="github_username" onchange="fetchRepoNames(this.value,1)" placeholder="abdulhakkeempa" name="github_username" required>
               </div>
-              <div class="mb-3">
-                <label for="github_repo" class="form-label font-sans text-slate-200 text-base">Github Repository Name</label>
-                <select class="form-select text-white bg-dropdown" aria-label="Default select example" id="github_repo" name="github_repo" onchange="fetchRepoFiles(this.value)" required data-bs-theme="dark">
-                  <option value="0" selected>Your Github Repository</option>
-                </select>
-                
+              <div class="col-12 mb-3 d-md-flex align-items-center">
+                <div class="col-12 col-md-9">
+                  <label for="github_repo" class="form-label font-sans text-slate-200 text-base">Github Repository Name</label>
+                  <select class="form-select text-white bg-dropdown" aria-label= "Default select example" id="github_repo" name="github_repo" onchange="fetchRepoFiles(this.value)" required data-bs-theme="dark">
+                    <option value="0" selected>Your Github Repository</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-3">
+                  <button class="btn btn-secondary mt-2 ms-0 ms-md-2 mt-md-4 w-100" onclick="incrementPageValues(event)">
+                    Next Repositories
+                  </button>
+                </div>
               </div>
               <div class="mb-3">
                 <label for="folder_structure" class="form-label font-sans text-slate-200 text-base">File Structure</label>

@@ -1,3 +1,5 @@
+var page = 1
+
 function getRepoNames(data){
   repoList = document.getElementById("github_repo")
   repoList.innerHTML = ""
@@ -25,8 +27,8 @@ function getFilesInRepo(data){
 }
 
 
-function fetchRepoNames(username){
-  fetch(`https://api.github.com/users/${username}/repos`)
+function fetchRepoNames(username,page){
+  fetch(`https://api.github.com/users/${username}/repos?page=${page}`)
   .then((response) => {
     if (!response.ok) {
       throw new Error("Invalid Username");
@@ -52,4 +54,15 @@ function fetchRepoFiles(repository){
   .catch(function(err) {
     alert(err)
   });
+}
+
+function incrementPageValues(e){
+  e.preventDefault();
+  page = page + 1
+  username = document.getElementById("github_username").value
+  if (!username){
+    alert("Please fill the username field")
+    return
+  }
+  fetchRepoNames(username, page)
 }
