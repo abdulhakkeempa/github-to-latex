@@ -16,10 +16,9 @@ If you find my project useful and want to show your support, you can give it a s
 
 
 ## Maintainers
-Abdul Hakkeem P A [Embed personal github URL]
-
-## Link to project walkthrough
-[link to video]
+<a href="https://github.com/abdulhakkeempa/github-to-latex/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=abdulhakkeempa/github-to-latex" />
+</a>
 
 ## How it Works ?
 This application operates entirely on the client-side, utilizing only public APIs for all data fetching processes. As a result, it operates without the need for a server, eliminating any concerns regarding scalability. This design decision allows for a streamlined user experience, while also ensuring efficient and effective functionality.
@@ -31,15 +30,8 @@ This application operates entirely on the client-side, utilizing only public API
 * JavaScript
 * GitHub API
 
-## How to configure
-```git clone https://github.com/abdulhakkeempa/github-to-latex.git```  
-```cd github-to-latex```  
-Open the ```index.html```
-
-
-## How to Run
-
-
-## Improvements Required
-Include new features, update, bug fixes for the project
+## How to configure and run
+1. ```git clone https://github.com/abdulhakkeempa/github-to-latex.git```  
+2. ```cd github-to-latex```  
+3. Open the ```index.html```
 
