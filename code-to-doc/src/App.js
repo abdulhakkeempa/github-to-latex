@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Auth from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Console from './pages/Console';
+import Auth from './pages/Login/Login';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Console from './pages/Console/Console';
 
 function App() {
   return (
