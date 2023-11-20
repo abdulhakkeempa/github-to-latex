@@ -1,11 +1,12 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
+import RecordForm from '../../sections/Forms/Console-Form';
 
 function Console() {
   return (
     <div>
       <Navbar/>
-      <h1>Console Page</h1>
+      <RecordForm/>
     </div>
   );
 }

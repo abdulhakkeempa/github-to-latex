@@ -18,8 +18,8 @@ export default function Navbar() {
               <h1 className='text-base text-white'>Abdul Hakkeem P A</h1>
               {isOpen && (
                 <div className='absolute right-0 mt-10 mr-2 lg:mr-7 py-2 w-48 bg-indigo-950 rounded-lg shadow-xl text-white'> 
-                  <a href="/dashboard" className='transition-colors duration-200 block px-4 py-2 text-normal text-white rounded hover:bg-purple-500 hover:text-gray '>Dashboard</a>
-                  <a href="#" className='transition-colors duration-200 block px-4 py-2 text-normal text-white rounded hover:bg-purple-500 hover:text-gray '>Logout</a>
+                  <a href="/dashboard" className='transition-colors duration-200 block px-4 py-2 text-normal text-white rounded hover:bg-indigo-700 hover:text-gray '>Dashboard</a>
+                  <a href="#" className='transition-colors duration-200 block px-4 py-2 text-normal text-white rounded hover:bg-indigo-700 hover:text-gray '>Logout</a>
                 </div>
               )}
             </div>
