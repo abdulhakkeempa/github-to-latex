@@ -4,11 +4,11 @@ function Auth() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
-        <h1 className='text-5xl font-semibold text-white pb-7'>Code to Doc</h1>
+        <h1 className='text-3xl font-semibold text-white pb-7'>Code to Doc</h1>
         <div className='flex items-center justify-evenly'>
           <div className='login w-full flex flex-col items-center justify-between p-7'>
             <div>
-              <h3 className='text-2xl text-white font-semibold'>Sign Up / Sign In</h3>
+              <h3 className='text-xl text-white font-semibold'>Sign Up / Sign In</h3>
             </div>
             <button className='bg-white w-full py-4 rounded text-xl flex items-center justify-center'>
               <svg xmlns="http://www.w3.org/2000/svg" width="31" height="32" viewBox="0 0 31 32" fill="none">
