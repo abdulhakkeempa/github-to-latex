@@ -17,11 +17,11 @@
           <div class="col-12">
             <div class="p-8">
               <h1 class="pt-4 pb-2 text-slate-200 text-4xl  text-center font-bold">Code-2-Doc</h1>
-              <h1 class="pb-4 text-slate-400 text-xl  text-center font-bold">Rapidly transform code from GitHub repository to custom template</h1>
+              <h1 class="pb-4 text-slate-400 text-xl  text-center font-semibold">Rapidly transform code from GitHub repository to custom template</h1>
               <div class="d-flex gap-3 justify-content-center">
                 <a class="github-button" href="https://github.com/abdulhakkeempa/github-to-latex" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star abdulhakkeempa/github-to-latex on GitHub">Star</a>
                 <a class="github-button" href="https://github.com/abdulhakkeempa/github-to-latex/issues" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-issue-opened" data-size="large" aria-label="Issue abdulhakkeempa/github-to-latex on GitHub">Issue</a>
-                <a class="github-button" href="docs/" data-color-scheme="no-preference: dark; light: light; dark: dark;"  data-size="large" aria-label="Issue abdulhakkeempa/github-to-latex on GitHub">Docs</a>
+                <a class="github-button" href="/docs" data-color-scheme="no-preference: dark; light: light; dark: dark;"  data-size="large" aria-label="Issue abdulhakkeempa/github-to-latex on GitHub">Docs</a>
               </div>
               <!-- Place this tag where you want the button to render. -->
             </div>
@@ -52,13 +52,13 @@
                 <input type="text" class="form-control text-white bg-slate-800" id="github_username" onchange="fetchRepoNames(this.value,1)" placeholder="abdulhakkeempa" name="github_username" required>
               </div>
               <div class="col-12 mb-3 d-md-flex align-items-center">
-                <div class="col-12 col-md-9">
+                <div class="col-12 col-md-6">
                   <label for="github_repo" class="form-label text-slate-200 text-base">Github Repository Name</label>
                   <select class="form-select text-white bg-dropdown" aria-label= "Default select example" id="github_repo" name="github_repo" onchange="fetchRepoFiles(this.value)" required data-bs-theme="dark">
                     <option value="0" selected>Your Github Repository</option>
                   </select>
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-6">
                   <button class="btn btn-secondary mt-2 ms-0 ms-md-2 mt-md-4 w-100" onclick="incrementPageValues(event)">
                     Next Repositories
                   </button>
@@ -80,9 +80,9 @@
             </form>
           </div>
           <div class="col-12 col-md-6">
-            <label for="output" class="form-label text-slate-200 text-base">Latex Code</label>
+            <label for="output" class="form-label text-slate-200 text-base">Document Code</label>
             <div id="output-code">
-              <textarea name="output" id="output" rows="24" class="form-control w-100 text-white bg-slate-800 mb-4" readonly></textarea>
+              <textarea name="output" id="output" rows="25" class="form-control w-100 text-white bg-slate-800 mb-4" readonly></textarea>
               <button id="copy-icon" title="Copy"><i class="bi bi-clipboard text-white h6"></i></button>
               <button id="clear-icon" title="Clear"><i class="bi bi-eraser-fill text-white h6"></i></button>
               <button id="settings-icon" title="Settings"><i class="bi bi-sliders text-white h6"></i></button>
@@ -91,9 +91,9 @@
           <div class="col-12">
             <div class="modal fade modal-style" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Add your custom latex code (beta)</h1>
+                <div class="modal-content p-2">
+                  <div class="modal-header pb-2">
+                    <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Add your custom template</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body pt-1">
@@ -112,13 +112,13 @@
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="use_custom_code" id="flexRadioDefault1" value="false" checked>
                             <label class="form-check-label text-white" for="use_custom_code">
-                              Predefined Latex Template
+                              Predefined Template
                             </label>
                           </div>
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="use_custom_code" id="flexRadioDefault2" value="true">
                             <label class="form-check-label text-white" for="use_custom_code">
-                              Custom Latex Code
+                              Custom Template
                             </label>
                           </div>
                         </div>
