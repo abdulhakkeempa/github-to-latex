@@ -1,5 +1,9 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+body {
+  font-family: 'Inter', sans-serif !important;
+}
 
 #output::-webkit-scrollbar,
 #output::-webkit-scrollbar-thumb {

@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-12">
             <div class="p-8">
-              <h1 class="pt-4 pb-4 font-sans text-slate-200 text-center font-bold">Rapidly transform your Github Code to Latex Project Template.</h1>
+              <h1 class="pt-4 pb-4 text-slate-200 text-4xl  text-center font-bold">Rapidly transform code from GitHub repository to custom template</h1>
               <div class="d-flex gap-3 justify-content-center">
                 <a class="github-button" href="https://github.com/abdulhakkeempa/github-to-latex" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star abdulhakkeempa/github-to-latex on GitHub">Star</a>
                 <a class="github-button" href="https://github.com/abdulhakkeempa/github-to-latex/issues" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-issue-opened" data-size="large" aria-label="Issue abdulhakkeempa/github-to-latex on GitHub">Issue</a>
@@ -39,20 +39,20 @@
           <div class="col-12 col-md-6">
             <form id="record-form">
               <div class="mb-3">
-                <label for="title" class="form-label font-sans text-slate-200 text-base">Title</label>
+                <label for="title" class="form-label text-slate-200 text-base">Title</label>
                 <input type="text" class="form-control text-white bg-slate-800" id="title" name="title" placeholder="FLOYD WARSHALL'S ALGORITHM" required>
               </div>
               <div class="mb-3">
-                <label for="aim" class="form-label font-sans text-slate-200 text-base">Aim</label>
+                <label for="aim" class="form-label text-slate-200 text-base">Aim</label>
                 <textarea type="text" class="form-control text-white bg-slate-800" id="aim" name="aim" placeholder="Program to implement Floyd Warshall's Algorithm" rows="10"></textarea required>
               </div>
               <div class="mb-3">
-                <label for="github_username" class="form-label font-sans text-slate-200 text-base">Github Username</label>
+                <label for="github_username" class="form-label text-slate-200 text-base">Github Username</label>
                 <input type="text" class="form-control text-white bg-slate-800" id="github_username" onchange="fetchRepoNames(this.value,1)" placeholder="abdulhakkeempa" name="github_username" required>
               </div>
               <div class="col-12 mb-3 d-md-flex align-items-center">
                 <div class="col-12 col-md-9">
-                  <label for="github_repo" class="form-label font-sans text-slate-200 text-base">Github Repository Name</label>
+                  <label for="github_repo" class="form-label text-slate-200 text-base">Github Repository Name</label>
                   <select class="form-select text-white bg-dropdown" aria-label= "Default select example" id="github_repo" name="github_repo" onchange="fetchRepoFiles(this.value)" required data-bs-theme="dark">
                     <option value="0" selected>Your Github Repository</option>
                   </select>
@@ -67,7 +67,7 @@
                 If you don't find your repository on the dropdown, click the Next Repository button.
               </div>
               <div class="mb-3">
-                <label for="folder_structure" class="form-label font-sans text-slate-200 text-base">File Structure</label>
+                <label for="folder_structure" class="form-label text-slate-200 text-base">File Structure</label>
                 <select class="form-select text-white bg-dropdown" aria-label="Default select example" id="folder_structure" name="folder_structure" required data-bs-theme="dark">
                   <option value="0" selected>Your File</option>
                 </select>
@@ -79,7 +79,7 @@
             </form>
           </div>
           <div class="col-12 col-md-6">
-            <label for="output" class="form-label font-sans text-slate-200 text-base">Latex Code</label>
+            <label for="output" class="form-label text-slate-200 text-base">Latex Code</label>
             <div id="output-code">
               <textarea name="output" id="output" rows="24" class="form-control w-100 text-white bg-slate-800 mb-4" readonly></textarea>
               <button id="copy-icon" title="Copy"><i class="bi bi-clipboard text-white h6"></i></button>
