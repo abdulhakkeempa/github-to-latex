@@ -93,8 +93,8 @@
               <div class="modal-dialog">
                 <div class="modal-content p-2">
                   <div class="modal-header pb-2">
-                    <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Add your custom template</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Add your custom template</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body pt-1">
                     <div class="col-12">
@@ -130,11 +130,12 @@
                           <button class="btn" onclick="event.preventDefault(); insertVariable('${data}')">data</button>
                         </div>
                         <div class="mb-3">
-                          <label for="latex_custom" class="form-label text-white">Latex Code</label>
+                          <label for="latex_custom" class="form-label text-white">Your Code</label>
                           <textarea name="latex_custom" id="latex_custom" cols="30" class="form-control text-white" rows="10"></textarea>
                         </div>
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center gap-2">
                           <input type="submit" class="btn btn-success" value="Save">
+                          <input type="button" class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 shadow-lg transition duration-300 rounded-md" data-bs-dismiss="modal" value="Close">
                         </div>
                       </form>
                     </div>
